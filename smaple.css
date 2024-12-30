@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    width: 100%;
+    background: 
+    url('https://finhost.io/wp-content/uploads/2022/10/How-to-Create-a-Digital-Online-Bank.-10-Things-You-Need-to-Know-min.webp');
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.navbar {
+    width: 1200px;
+    height: 75px;
+    margin: auto;
+}
+
+.icon {
+    width: 200px;
+    float: left;
+    height: 70px;
+}
+
+.logo {
+    color: #ff7200;
+    font-size: 35px;
+    font-family: Arial;
+    padding-left: 20px;
+    float: left;
+    padding-top: 10px;
+    margin-top: 5px;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.menu {
+    width: calc(100% - 200px);
+    float: left;
+    height: 70px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.menu ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    list-style: none;
+}
+
+.menu a {
+    position: relative;
+    display: block;
+    text-transform: uppercase;
+    margin: 0 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #f5f0f0;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.5s, color 0.5s; /* Smooth transition for background and text color */
+}
+
+.menu a:hover {
+    color: #fff; /* Change text color on hover */
+    background-color: rgba(255, 114, 0, 0.7); /* Semi-transparent background on hover */
+}
+
+.menu a:active {
+    background-color: rgba(255, 114, 0, 1); /* Fully opaque background when clicked */
+    color: #fff; /* Text color when clicked */
+}
+
+ul {
+    float: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
+ul li {
+    list-style: none;
+    margin-left: 62px;
+    margin-top: 27px;
+    font-size: 14px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-family: Arial;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+}
+
+ul li a:hover {
+    color: #ff7200;
+}
+
+.content {
+    width: 1200px;
+    height: 220px;
+    margin: 200px;
+    color: #fff;
+    position: relative;
+}
+
+.content .par {
+    padding-left: 20px;
+    padding-bottom: 25px;
+    padding-top: 20px;
+    font-family: Arial;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    line-height: 30px;
+    color: #ff7200;
+}
+
+.content h1 {
+    font-family: 'Times New Roman';
+    font-size: 67px;
+    padding-left: 20px;
+    margin-top: 9%;
+    letter-spacing: 2px;
+}
+
+.content .cn {
+    width: 160px;
+    height: 40px;
+    background: #ff7200;
+    border: none;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .4s ease;
+}
+
+.content .cn a {
+    text-decoration: none;
+    color: #000;
+    transition: .3s ease;
+}
+
+.cn:hover {
+    background-color: #fff;
+}
+
+.content span {
+    color: #ff7200;
+    font-size: 65px;
+}

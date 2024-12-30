@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Banking System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+            background-color: #00072d;
+        }
+        .left-panel {
+            flex: 1;
+            background-color: #1e296a;
+            color: #ffffff;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .left-panel h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .left-panel p {
+            font-size: 1rem;
+            margin-bottom: 30px;
+            text-align: center;
+            line-height: 1.5;
+        }
+        .left-panel a {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #1e296a;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin: 10px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .left-panel a:hover {
+            background-color: #ffcc00;
+            transform: scale(1.05);
+        }
+        .right-panel {
+            flex: 1;
+            background-image: url('your-image-path.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .navbar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #ffcc00;
+        }
+        /* Dropdown Container */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        /* Dropdown Menu */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #1e296a;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .dropdown-content a:hover {
+            background-color: #333;
+            transform: scale(1.05);
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown:hover .dropdown-btn {
+            color: #ffcc00;
+        }
+        /* Profile Modal */
+        #profileModal {
+            display: none;
+            position: fixed;
+            top: 80px; /* Adjusted for better visibility */
+            right: 20px;
+            padding: 20px;
+            background-color: #1e296a;
+            color: #ffffff;
+            border-radius: 8px;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        #profileModal h3 {
+            margin-top: 0;
+        }
+        #profileModal button {
+            background-color: #ffffff;
+            color: #1e296a;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        #profileModal button:hover {
+            background-color: #ffcc00;
+        }
+        /* Transaction History Modal */
+        #historyModal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 800px;
+            height: 80%;
+            background-color: #ffffff;
+            color: #1e296a;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        #historyModal h3 {
+            text-align: center;
+            margin-top: 0;
+        }
+        #historyModal ul {
+            list-style: none;
+            padding: 0;
+        }
+        #historyModal ul li {
+            margin: 10px 0;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        #historyModal button {
+            background-color: #1e296a;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 20px auto 0;
+        }
+        #historyModal button:hover {
+            background-color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="left-panel">
+            <h1>Welcome to Secure Banking System</h1>
+            <p>Experience a seamless and secure banking experience with our state-of-the-art system, ensuring your financial transactions are safe, quick, and efficient.</p>
+            <div>
+                <a href="#">Explore</a>
+                <a href="#">Discover</a>
+            </div>
+        </div>
+        <div class="right-panel"></div>
+    </div>
+
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#" onclick="showProfile()">Profile</a>
+        <div class="dropdown">
+            <a href="#" class="dropdown-btn">Transactions</a>
+            <div class="dropdown-content">
+                <a href="http://127.0.0.1:5501/testing_blockahin.html">Transfer</a>
+                <a href="#" onclick="showTransactionHistory()">History</a>
+            </div>
+        </div>
+        <!-- Modified Logout Link -->
+        <a href="http://127.0.0.1:5501/login+sign%20in%20page/logout.html" onclick="logout(); return false;">Logout</a>
+    </div>
+
+    <!-- Profile Modal -->
+    <div id="profileModal">
+        <h3>Your Profile</h3>
+        <p>Email: <span id="userEmail"></span></p>
+        <button onclick="hideProfile()">Close</button>
+    </div>
+
+    <!-- Transaction History Modal -->
+    <div id="historyModal">
+        <h3>Transaction History</h3>
+        <ul id="transactionList"></ul>
+        <button onclick="hideTransactionHistory()">Close</button>
+    </div>
+
+    <script>
+        // Function to show the profile modal
+        function showProfile() {
+            const userEmail = localStorage.getItem('userEmail') || 'Guest';
+            document.getElementById('userEmail').innerText = userEmail;
+            document.getElementById('profileModal').style.display = 'block';
+        }
+
+        // Function to hide the profile modal
+        function hideProfile() {
+            document.getElementById('profileModal').style.display = 'none';
+        }
+
+        // Function to show the transaction history modal
+        function showTransactionHistory() {
+            fetchTransactionHistory();
+            document.getElementById('historyModal').style.display = 'block';
+        }
+
+        // Function to hide the transaction history modal
+        function hideTransactionHistory() {
+            document.getElementById('historyModal').style.display = 'none';
+        }
+
+        async function fetchTransactionHistory() {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    // Request MetaMask account access
+                    await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    const web3 = new Web3(window.ethereum);
+                    const accounts = await web3.eth.getAccounts();
+                    const walletAddress = accounts[0]; // Connected MetaMask wallet address
+
+                    // Etherscan API Key (Security Notice Below)
+                    const apiKey = '1JP9UPJ7AMKKZIWUEJ71CXM7R1I7NYSEAS'; // **Replace this with your actual Etherscan API key securely**
+
+                    // Construct the API URL using template literals
+                    const url = `https://api-sepolia.etherscan.io/api?module=account&action=txlist&address=${walletAddress}&startblock=0&endblock=99999999&sort=asc&apikey=${apiKey}`;
+                    
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    const transactionList = document.getElementById('transactionList');
+                    transactionList.innerHTML = '';
+
+                    if (data.status === "1" && data.result.length > 0) {
+                        // Display each transaction in the history modal
+                        data.result.forEach(transaction => {
+                            const listItem = document.createElement('li');
+                            const amount = web3.utils.fromWei(transaction.value, 'ether'); // Convert value from Wei to Ether
+                            const direction = transaction.from.toLowerCase() === walletAddress.toLowerCase() ? 'Sent' : 'Received';
+
+                            // Use template literals with backticks for proper string interpolation
+                            listItem.innerHTML = `
+                                <strong>Transaction Hash:</strong> ${transaction.hash}<br>
+                                <strong>From:</strong> ${transaction.from}<br>
+                                <strong>To:</strong> ${transaction.to}<br>
+                                <strong>Amount:</strong> ${amount} ETH<br>
+                                <strong>Status:</strong> ${direction}
+                            `;
+                            transactionList.appendChild(listItem);
+                        });
+                    } else {
+                        transactionList.innerHTML = '<li>No transactions found.</li>';
+                    }
+                } catch (error) {
+                    console.error('Error fetching transaction history:', error);
+                    alert("An error occurred while fetching transaction history.");
+                }
+            } else {
+                alert("MetaMask is not installed. Please install it to access this feature.");
+            }
+        }
+
+        // Function to log out
+        function logout() {
+            // Remove user data from localStorage
+            localStorage.removeItem('userEmail');
+            // It's advisable to remove sensitive data like passwords if stored
+            // localStorage.removeItem('userPassword'); // Uncomment if you have this stored
+
+            // Open the logout page in a new window/tab
+            window.open('http://127.0.0.1:5501/login+sign%20in%20page/logout.html', '_blank');
+
+            // Attempt to close the current window
+            window.close();
+
+            // For browsers that prevent window.close(), redirect to a blank page
+            setTimeout(function() {
+                window.location.href = 'about:blank';
+            }, 1000);
+        }
+    </script>
+    <!-- Include Web3.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.6.1/web3.min.js"></script>
+</body>
+</html>

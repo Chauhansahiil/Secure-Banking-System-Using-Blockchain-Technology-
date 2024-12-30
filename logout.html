@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout Confirmation & Contact Us</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-56228.jpg?w=1060&t=st=1728582892~exp=1728583492~hmac=6b9fee4660c612dcaf0cd29aa046e65ae9d1ca062fedee0f640f4f6071e66907');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.8); /* Changed to black */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            width: 70%;
+            max-width: 900px;
+            text-align: center;
+            padding: 30px;
+            backdrop-filter: blur(5px);
+            position: relative; /* To position the logo absolutely */
+        }
+
+        .bank-logo {
+            width: 120px; /* Increased width for better display */
+            height: auto; /* Maintain aspect ratio */
+            position: absolute; /* Position the logo in the top right */
+            top: 20px;
+            right: 20px;
+        }
+
+        h2, p {
+            color: white; /* Set text color to white */
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .ai-image {
+            margin: 20px 0;
+        }
+
+        .ai-image img {
+            width: 50px; /* Further reduced width for a smaller image */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 50%;
+        }
+
+        /* Contact Us Section */
+        .contact-section {
+            background-color: rgba(0, 0, 0, 0.8); /* Set to black for consistency */
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+
+        .contact-section h3 {
+            font-size: 22px;
+            color: white; /* Set text color to white */
+            margin-bottom: 10px;
+        }
+
+        .contact-section p {
+            font-size: 16px;
+            color: white; /* Set text color to white */
+            margin-bottom: 20px;
+        }
+
+        .contact-section button {
+            background-color: #007bff; /* Blue color for contact button */
+            color: white;
+            border: none;
+            padding: 10px 15px; /* Adjusted padding for smaller button */
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px; /* Space between buttons */
+            min-width: 120px; /* Set a minimum width for consistency */
+        }
+
+        .contact-section button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Home button styles */
+        .home-button {
+            background-color: #007bff; /* Match color with contact button */
+            color: white;
+            border: none;
+            padding: 10px 15px; /* Same padding as contact button */
+            border-radius: 5px;
+            cursor: pointer;
+            min-width: 120px; /* Set a minimum width for consistency */
+        }
+
+        .home-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Logout Confirmation -->
+    <div class="container">
+        <img src="logo.png" alt="Bank Logo" class="bank-logo"> <!-- Positioned in the top right corner -->
+        <h2>Successfully Logged Out</h2>
+        <p>Thank you for using our banking system. We hope to see you again soon.</p>
+        <p>If you have any concerns, feel free to reach out.</p>
+
+        <div class="ai-image">
+            <img src="new.jpg" alt="AI Logout Image">
+        </div>
+
+        <!-- Contact Us Section -->
+        <div class="contact-section">
+            <h3>Need Assistance? Contact Us</h3>
+            <p>If you have any questions or issues, feel free to reach out using the contact form below.</p>
+            <button onclick="window.location.href='http://127.0.0.1:5501/conact%20page/index.html'">Contact Us</button> <!-- Update with your contact page URL -->
+            <button class="home-button" onclick="window.location.href='http://127.0.0.1:5501/home.html'">Home</button> <!-- New Home button -->
+        </div>
+    </div>
+
+</body>
+</html>
